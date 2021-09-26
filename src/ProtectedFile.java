@@ -10,7 +10,7 @@ import java.util.Scanner;
  должен корректно отработать метод @isCorrectPassword(),который в свою очередь проверяет совпадает ли пароль
  экземпляра класса с введенной в консоли строки */
 
-public class ProtectedFile extends File implements Password{
+public class ProtectedFile extends File implements Password {
     private Scanner scanner = new Scanner(System.in);
     private String password;
 
@@ -41,15 +41,15 @@ public class ProtectedFile extends File implements Password{
     }
 
     public boolean isCorrectPassword() {
-            System.out.println(ENTER_PASSWORD + " для " + this.path.getFileName());
-            for (int i = 0; i < 4; i++) {
-                if (this.password.equals(scanner.nextLine())) {
-                    return true;
-                } else if (i < 3) {
-                    System.out.printf(INCORRECT_PASSWORD_WITH_ATTEMPTS, NUMBER_OF_ATTEMPTS - i);
-                } else
-                    System.out.println(INCORRECT_PASSWORD_SUPPORT);
-            }
+        System.out.println(ENTER_PASSWORD + " для " + this.path.getFileName());
+        for (int i = 0; i < 4; i++) {
+            if (this.password.equals(scanner.nextLine())) {
+                return true;
+            } else if (i < 3) {
+                System.out.printf(INCORRECT_PASSWORD_WITH_ATTEMPTS, NUMBER_OF_ATTEMPTS - i);
+            } else
+                System.out.println(INCORRECT_PASSWORD_SUPPORT);
+        }
         return false;
     }
 
