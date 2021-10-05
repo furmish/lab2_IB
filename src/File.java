@@ -23,7 +23,7 @@ public class File {
     }
 
     public void getFileContent() {
-        System.out.println(Password.CONTENT);
+        System.out.printf(Password.CONTENT, this.path.getFileName());
         try (BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(path)))) {
             StringBuilder fileContent = new StringBuilder();
             while (reader.ready()) {

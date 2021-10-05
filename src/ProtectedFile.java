@@ -21,7 +21,7 @@ public class ProtectedFile extends File implements Password{
 
     public void getFileContent() {
         if (isCorrectPassword()) {
-            System.out.println(WELCOME_WITH_PASSWORD);
+            System.out.printf(WELCOME_WITH_PASSWORD, this.path.getFileName());
             try (BufferedReader reader = new BufferedReader(new FileReader(String.valueOf(path)))) {
                 StringBuilder fileContent = new StringBuilder();
                 while (reader.ready()) {
@@ -36,12 +36,12 @@ public class ProtectedFile extends File implements Password{
     }
 
     public void setNewPassword() {
-        System.out.println(SET_PASSWORD + " для " + this.path.getFileName());
+        System.out.printf(SET_PASSWORD, this.path.getFileName());
         this.password = scanner.nextLine();
     }
 
     public boolean isCorrectPassword() {
-            System.out.println(ENTER_PASSWORD + " для " + this.path.getFileName());
+            System.out.printf(ENTER_PASSWORD, this.path.getFileName());
             for (int i = 0; i < 4; i++) {
                 if (this.password.equals(scanner.nextLine())) {
                     return true;
